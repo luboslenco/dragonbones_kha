@@ -1,7 +1,7 @@
 package dragonbones.flash;
 
-import dragonbones.flash.ColorMatrix;
-import dragonbones.flash.Float32Array;
+//import dragonbones.flash.ColorMatrix;
+//import dragonbones.flash.Float32Array;
 
 
 class ColorTransform {

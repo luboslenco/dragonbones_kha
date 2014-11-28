@@ -1,6 +1,6 @@
 package dragonbones.objects;
 import dragonbones.Interfaces.IDisposable;
-import dragonbones.flash.ByteArray;
+//import dragonbones.flash.ByteArray;
 
 /**
  * @author SlavaRa

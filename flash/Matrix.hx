@@ -13,7 +13,7 @@ class Matrix {
 	public var tx:Float;
 	public var ty:Float;
 	
-	@:noCompletion private var __array:Float32Array;
+	@:noCompletion private var __array:Array<Float>;// Float32Array;
 
 	@:noCompletion private static var __identity = new Matrix ();
 	
@@ -27,7 +27,8 @@ class Matrix {
 		this.tx = tx;
 		this.ty = ty;
 
-		__array = new Float32Array([a, b, c, d, tx, ty, 0, 0, 1]);
+		//__array = new Float32Array([a, b, c, d, tx, ty, 0, 0, 1]);
+		__array = [a, b, c, d, tx, ty, 0, 0, 1];
 		
 	}
 	
@@ -430,7 +431,7 @@ class Matrix {
 	}
 	
 	
-	@:noCompletion private function toArray (transpose:Bool = false):Float32Array {
+	@:noCompletion private function toArray (transpose:Bool = false):Array<Float> { // Float32Array {
 		
 		if (transpose) {
 			

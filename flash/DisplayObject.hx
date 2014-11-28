@@ -21,8 +21,10 @@ class DisplayObject extends fox.core.Object {
 	
 	public function new () {
 		super();
+
 		flashTransform = new Transform(this);
 
+		// TODO: remove
 		addTrait(new DisplayUpdater());
 	}
 }
@@ -41,15 +43,18 @@ class DisplayUpdater extends fox.core.Trait implements fox.core.IUpdateable {
 
 	public function update() {
 		var p = cast(parent, DisplayObject);
-		transform.x = p.x - p.pivotX + (transform.w - transform.w * p.scaleX) / 2;
-		transform.y = p.y - p.pivotY + (transform.h - transform.h * p.scaleY) / 2;
+
+		//if (!p.visible) return;
+
+		transform.x = p.x - (p.pivotX * p.scaleX);
+		transform.y = p.y - (p.pivotY * p.scaleY);
 		transform.scale.x = p.scaleX;
 		transform.scale.y = p.scaleY;
 
-		if (renderer != null) {
-			renderer.ox = transform.absx + transform.w / 2;
-			renderer.oy = transform.absy + transform.h / 2;
-			renderer.angle = fox.math.Math.degToRad(p.rotation);
-		}
+		//if (renderer != null) {
+		//	renderer.ox = transform.absx + transform.w / 2;
+		//	renderer.oy = transform.absy + transform.h / 2;
+		//	renderer.angle = fox.math.Math.degToRad(p.rotation);
+		//}
 	}
 }

@@ -224,7 +224,9 @@ class Armature /*extends EventDispatcher*/ implements INameable implements IAnim
 	}
 	
 	public function updateSlotsZOrder() {
+
 		slotList.sort(function(s1, s2):Int return s2.zOrder > s1.zOrder ? 1 : -1);
+
 		var i = slotList.length;
 		while(i --> 0) {
 			var slot = slotList[i];

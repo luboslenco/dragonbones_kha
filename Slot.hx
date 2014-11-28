@@ -207,7 +207,9 @@ class Slot extends DBObject {
 				}
 				
 				if(displayDataList != null && _displayIndex <= displayDataList.length) {
-					origin.copy(displayDataList[_displayIndex].transform);
+					if (displayDataList[_displayIndex] != null) { // HTML5 check
+						origin.copy(displayDataList[_displayIndex].transform);
+					}
 				}
 			} else if(changeShowState) {
 				updateChildArmatureAnimation();

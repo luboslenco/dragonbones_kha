@@ -10,13 +10,13 @@ import dragonbones.objects.SkeletonData;
 import dragonbones.objects.SkinData;
 import dragonbones.objects.SlotData;
 import dragonbones.objects.Timeline.TransformTimeline;
-import dragonbones.utils.BytesType;
+//import dragonbones.utils.BytesType;
 import dragonbones.utils.ConstValues;
 import dragonbones.utils.DBDataUtil;
 import dragonbones.flash.ColorTransform;
 import dragonbones.flash.Point;
 import dragonbones.flash.Rectangle;
-import dragonbones.flash.ByteArray;
+//import dragonbones.flash.ByteArray;
 using Lambda;
 using Reflect;
 using Std;
@@ -467,8 +467,11 @@ class XMLDataParser {
 		if(inheritScale != null) {
 			boneData.scaleMode = inheritScale.parseInt();
 		}
-		var fixedRotation = rawData.get(ConstValues.A_FIXED_ROTATION).split(",")[0];
-		boneData.fixedRotation = !["0", "false", "no", "", null].has(fixedRotation);
+		var temp = rawData.get(ConstValues.A_FIXED_ROTATION);
+		if (temp != null) {
+			var fixedRotation = temp.split(",")[0];
+			boneData.fixedRotation = !["0", "false", "no", "", null].has(fixedRotation);
+		}
 		return boneData;
 	}
 	

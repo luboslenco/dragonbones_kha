@@ -39,7 +39,7 @@ class NativeFactory extends BaseFactory {
 			if (subTextureData != null) {
 				var obj = new DisplayObject();
 				obj.texture = nativeTexAtlas.texture;
-				var renderer = new fox.trait2d.ImageRenderer(obj.texture);
+				var renderer = new dragonbones.flash.DisplayRenderer(obj.texture, obj);
 				renderer.source.x = subTextureData.x;
 				renderer.source.y = subTextureData.y;
 				renderer.source.w = subTextureData.width;

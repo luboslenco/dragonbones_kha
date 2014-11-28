@@ -15,7 +15,7 @@ import dragonbones.utils.DisposeUtil;
 import dragonbones.flash.DisplayObjectContainer;
 //import flash.events.Event;
 import dragonbones.flash.Matrix;
-import dragonbones.flash.ByteArray;
+//import dragonbones.flash.ByteArray;
 #if msignal
 import msignal.Signal.Signal0;
 #end
@@ -247,7 +247,7 @@ class BaseFactory {//extends EventDispatcher {
 			var helpArray:Array<Dynamic> = [];
 			var displayDataList = slot.displayDataList;
 			var i = displayDataList.length;
-			while(i --> 0) {
+			while (i-- > 0) {
 				var displayData = displayDataList[i];
 				switch (displayData.type) {
 					case DisplayData.ARMATURE:
