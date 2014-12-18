@@ -1,8 +1,6 @@
 package dragonbones.flash;
 
-//import dragonbones.flash.ColorMatrix;
-//import dragonbones.flash.Float32Array;
-
+// Originally created by OpenFL(openfl.org) project
 
 class ColorTransform {
 	
@@ -69,13 +67,5 @@ class ColorTransform {
 		return color;
 		
 	}
-	
-	
-	/*@:noCompletion private function __toLimeColorMatrix ():ColorMatrix {
-		
-		return cast new Float32Array ([ redMultiplier, 0, 0, 0, redOffset / 255, 0, greenMultiplier, 0, 0, greenOffset / 255, 0, 0, blueMultiplier, 0, blueOffset / 255, 0, 0, 0, alphaMultiplier, alphaOffset / 255 ]);
-		
-	}*/
-	
 	
 }

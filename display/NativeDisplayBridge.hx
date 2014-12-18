@@ -1,8 +1,7 @@
 package dragonbones.display;
 import dragonbones.Interfaces.IDisplayBridge;
 import dragonbones.objects.DBTransform;
-import dragonbones.TypeDefs.DisplayObject;
-import dragonbones.TypeDefs.DisplayObjectContainer;
+import dragonbones.flash.DisplayObject;
 import dragonbones.flash.ColorTransform;
 import dragonbones.flash.Matrix;
 import dragonbones.flash.Transform;
@@ -26,7 +25,7 @@ class NativeDisplayBridge implements IDisplayBridge {
 			return value;
 		}
 		var index:Int = 0;
-		var parent:DisplayObjectContainer = null;
+		var parent:DisplayObject = null;
 		if (display != null) {
 			parent = cast display.parent;
 			if (parent != null) {
@@ -36,7 +35,7 @@ class NativeDisplayBridge implements IDisplayBridge {
 		}
 		display = value;
 		if(display != null)  {
-			_displayTransform = display.flashTransform;
+			_displayTransform = display.transform;
 		} else {
 			_displayTransform = null;
 		}
@@ -81,7 +80,7 @@ class NativeDisplayBridge implements IDisplayBridge {
 	
 	public function updateBlendMode(blendMode:String) display.blendMode = blendMode;
 	
-	public function addDisplay(container:DisplayObjectContainer, index:Int = -1) {
+	public function addDisplay(container:DisplayObject, index:Int = -1) {
 		if (container != null && display != null) {
 			if(index < 0) {
 				container.addChild(display);

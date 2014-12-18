@@ -1,7 +1,7 @@
 package dragonbones.factorys;
 import dragonbones.Armature;
 import dragonbones.Bone;
-import dragonbones.TypeDefs.DisplayObject;
+import dragonbones.flash.DisplayObject;
 import dragonbones.objects.ArmatureData;
 import dragonbones.objects.DisplayData;
 import dragonbones.objects.Parsers.DataParser;
@@ -9,13 +9,8 @@ import dragonbones.objects.SkeletonData;
 import dragonbones.objects.SkinData;
 import dragonbones.Slot;
 import dragonbones.textures.ITextureAtlas;
-//import dragonbones.TypeDefs.EventDispatcher;
 import dragonbones.utils.DisposeUtil;
-//import flash.display.Bitmap;
-import dragonbones.flash.DisplayObjectContainer;
-//import flash.events.Event;
 import dragonbones.flash.Matrix;
-//import dragonbones.flash.ByteArray;
 #if msignal
 import msignal.Signal.Signal0;
 #end

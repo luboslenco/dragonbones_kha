@@ -1,7 +1,7 @@
 package dragonbones;
 import dragonbones.Armature;
 import dragonbones.core.DBObject;
-import dragonbones.TypeDefs.DisplayObject;
+import dragonbones.flash.DisplayObject;
 import dragonbones.Interfaces.IDisplayBridge;
 import dragonbones.objects.DisplayData;
 import dragonbones.utils.DisposeUtil;

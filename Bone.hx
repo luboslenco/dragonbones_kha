@@ -6,8 +6,8 @@ import dragonbones.core.DBObject;
 import dragonbones.events.SoundEventManager;
 import dragonbones.objects.Frame;
 import dragonbones.Slot;
-import dragonbones.TypeDefs.DisplayBridge;
-import dragonbones.TypeDefs.DisplayObject;
+import dragonbones.display.NativeDisplayBridge;
+import dragonbones.flash.DisplayObject;
 import dragonbones.utils.DisposeUtil;
 import dragonbones.flash.Point;
 
@@ -34,7 +34,7 @@ class Bone extends DBObject {
 	public var display(get, set):DisplayObject;
 	public var displayController:String;
 	
-	var _displayBridge:DisplayBridge;
+	var _displayBridge:NativeDisplayBridge;
 	
 	function get_childArmature():Armature return slot != null ? slot.childArmature : null;
 	

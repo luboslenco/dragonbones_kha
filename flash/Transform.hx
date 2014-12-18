@@ -1,5 +1,7 @@
 package dragonbones.flash;
 
+// Originally created by OpenFL(openfl.org) project
+
 class Transform {
 	
 	

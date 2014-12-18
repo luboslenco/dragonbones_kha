@@ -1,7 +1,7 @@
 package dragonbones;
 import dragonbones.Interfaces.IDisposable;
 import dragonbones.objects.DBTransform;
-import dragonbones.TypeDefs.DisplayObject;
+import dragonbones.flash.DisplayObject;
 import dragonbones.flash.Matrix;
 
 /**

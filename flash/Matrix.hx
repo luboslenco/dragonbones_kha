@@ -2,6 +2,7 @@ package dragonbones.flash;
 
 import dragonbones.flash.Point;
 
+// Originally created by OpenFL(openfl.org) project
 
 class Matrix {
 	

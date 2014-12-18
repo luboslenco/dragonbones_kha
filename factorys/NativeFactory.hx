@@ -5,8 +5,7 @@ import dragonbones.factorys.BaseFactory;
 import dragonbones.Slot;
 import dragonbones.textures.ITextureAtlas;
 import dragonbones.textures.NativeTextureAtlas;
-import dragonbones.TypeDefs.DisplayObject;
-import dragonbones.TypeDefs.Sprite;
+import dragonbones.flash.DisplayObject;
 using Std;
 
 /**
@@ -21,7 +20,7 @@ class NativeFactory extends BaseFactory {
 		return new NativeTextureAtlas(content, texAtlasRawData, 1, false);
 	}
 	
-	override function generateArmature():Armature return new Armature(new Sprite());
+	override function generateArmature():Armature return new Armature(new DisplayObject(null));
 	
 	override function generateSlot():Slot return new Slot(new NativeDisplayBridge());
 	
@@ -37,16 +36,13 @@ class NativeFactory extends BaseFactory {
 		if(nativeTexAtlas.texture != null) {
 			var subTextureData = nativeTexAtlas.getRegion(name);
 			if (subTextureData != null) {
-				var obj = new DisplayObject();
-				obj.texture = nativeTexAtlas.texture;
-				var renderer = new dragonbones.flash.DisplayRenderer(obj.texture, obj);
-				renderer.source.x = subTextureData.x;
-				renderer.source.y = subTextureData.y;
-				renderer.source.w = subTextureData.width;
-				renderer.source.h = subTextureData.height;
-				obj.addTrait(renderer);
-				obj.transform.w = renderer.source.w;
-				obj.transform.h = renderer.source.h;
+				var obj = new DisplayObject(nativeTexAtlas.texture);
+				obj.sourceX = subTextureData.x;
+				obj.sourceY = subTextureData.y;
+				obj.sourceW = subTextureData.width;
+				obj.sourceH = subTextureData.height;
+				obj.w = obj.sourceW;
+				obj.h = obj.sourceH;
 				obj.pivotX = pivotX;
 				obj.pivotY = pivotY;
 				return obj;

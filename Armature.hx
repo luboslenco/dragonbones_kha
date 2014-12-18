@@ -10,10 +10,7 @@ import dragonbones.Interfaces.IDisposable;
 import dragonbones.Interfaces.INameable;
 import dragonbones.objects.Frame;
 import dragonbones.Slot;
-import dragonbones.TypeDefs.DisplayObject;
-//import dragonbones.TypeDefs.Event;
-//import dragonbones.TypeDefs.EventDispatcher;
-import dragonbones.TypeDefs.Sprite;
+import dragonbones.flash.DisplayObject;
 import dragonbones.utils.DisposeUtil;
 using Lambda;
 
@@ -25,7 +22,7 @@ class Armature /*extends EventDispatcher*/ implements INameable implements IAnim
 	
 	static var _soundManager:SoundEventManager = SoundEventManager.instance;
 	
-	public function new(display:Sprite) {
+	public function new(display:DisplayObject) {
 		//super();
 		this.display = display;
 		animation = new Animation(this);
@@ -37,7 +34,7 @@ class Armature /*extends EventDispatcher*/ implements INameable implements IAnim
 	}
 	
 	public var name(default, default):String;
-	public var display(default, null):Sprite;
+	public var display(default, null):DisplayObject;
 	public var animation(default, null):Animation;
 	public var userData:Dynamic;
 	

@@ -1,6 +1,5 @@
 package dragonbones.objects;
 import dragonbones.core.DragonBones;
-import dragonbones.errors.DragonBonesError.NonSupportVersionError;
 import dragonbones.objects.AnimationData;
 import dragonbones.objects.ArmatureData;
 import dragonbones.objects.DisplayData;
@@ -428,7 +427,7 @@ class XMLDataParser {
 		if(ConstValues.OLD_VERSIONS.has(v)) {
 			return null;//OldXMLDataParser.parse(rawData);
 		} else if (v != DragonBones.DATA_VERSION) {
-			new NonSupportVersionError();
+			throw "non supported version error";//new NonSupportVersionError();
 			return null;
 		} else {
 			var frameRate = rawData.firstElement().get(ConstValues.A_FRAME_RATE).parseInt();
@@ -553,6 +552,18 @@ class XMLDataParser {
 			var frame = new TransformFrame();
 			parseFrame(rawData, frame, frameRate);
 			
+			#if js
+			var rvisible = rawData.get(ConstValues.A_HIDE).parseInt() != 1;
+			var rtweenEasing = rawData.get(ConstValues.A_TWEEN_EASING).parseFloat();
+			var rtweenRotate = rawData.get(ConstValues.A_TWEEN_ROTATE).parseInt();
+			var rdisplayIndex = rawData.get(ConstValues.A_DISPLAY_INDEX).parseInt();
+			var rzOrder = rawData.get(ConstValues.A_Z_ORDER).parseFloat();
+			if (rvisible != null) frame.visible = rvisible;
+			if (rtweenEasing != null) frame.tweenEasing = rtweenEasing;
+			if (rtweenRotate != null) frame.tweenRotate = rtweenRotate;
+			if (rdisplayIndex != null) frame.displayIndex = rdisplayIndex;
+			if (rzOrder != null) frame.zOrder = rzOrder;
+			#else
 			frame.visible = rawData.get(ConstValues.A_HIDE).parseInt() != 1;
 			frame.tweenEasing = rawData.get(ConstValues.A_TWEEN_EASING).parseFloat();
 			frame.tweenRotate = rawData.get(ConstValues.A_TWEEN_ROTATE).parseInt();
@@ -560,6 +571,7 @@ class XMLDataParser {
 			
 			//frame.zOrder = rawData.firstElement().get(ConstValues.A_Z_ORDER).parseFloat();
 			frame.zOrder = rawData.get(ConstValues.A_Z_ORDER).parseFloat();
+			#end
 			
 			parseTransform(rawData.elementsNamed(ConstValues.TRANSFORM).next(), frame.global, frame.pivot);
 			frame.transform.copy(frame.global);
